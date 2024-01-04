@@ -1,6 +1,7 @@
 package com.estelar.menuservice.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,13 +22,21 @@ public class Food {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private String title;
 
     private String description;
-    @Column(name = "created_at")
+
+    @Column(name = "created_at", nullable = false)
     private Date createdAt;
-    @Column(name = "user_created")
+
+    @Column(name = "user_created", nullable = false)
     private String userCreated;
 
+    @Column(name = "deleted_at", nullable = true)
+    private Date deletedAt;
+
+    @Column(name = "user_deleted", nullable = true)
+    private String userDeleted;
 
 }
