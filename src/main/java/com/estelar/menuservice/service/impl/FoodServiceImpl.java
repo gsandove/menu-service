@@ -64,7 +64,7 @@ public class FoodServiceImpl implements FoodService {
     public Boolean update(FoodUpdateRequestDTO foodUpdateRequest) {
         Optional<Food> entityOpt = this.repository.findById(foodUpdateRequest.getId());
         if(entityOpt.isPresent() == false)
-            return null;
+            return false;
 
         Food entity = entityOpt.get();
         entity.setTitle(foodUpdateRequest.getTitle());
