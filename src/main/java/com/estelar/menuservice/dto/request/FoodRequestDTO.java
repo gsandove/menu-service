@@ -1,18 +1,19 @@
 package com.estelar.menuservice.dto.request;
 
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @SuperBuilder
 @Setter
 @Getter
-@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 public class FoodRequestDTO {
 
+    @NotNull
     private String title;
+
     private String description;
 
 }
